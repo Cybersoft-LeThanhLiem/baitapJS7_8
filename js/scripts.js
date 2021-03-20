@@ -73,3 +73,50 @@ document.querySelector("#btnBai5").onclick = function () {
     });
     document.querySelector("#kqBai5").innerHTML = even.length != 0 ? even[even.length - 1] : -1;
 }
+
+/**
+ * 6. Đổi chỗ 2 giá trị trong mảng theo vị trí
+ */
+
+document.getElementById("btnBai6").onclick = function () {
+    var a = Number(document.querySelector("#a").value);
+    var b = Number(document.querySelector("#b").value);
+    if (a < 0 || a >= arr.length || b < 0 || b >= arr.length) {
+        alert("Chỉ số vị trí sai!");
+        return;
+    }
+    var newArr = arr.map(function(n) {
+        return n;
+    });
+    var temp = newArr[a];
+    newArr[a] = newArr[b];
+    newArr[b] = temp;
+    document.querySelector("#kqBai6").innerHTML = '[' + newArr.join(', ') + ']';
+}
+
+/**
+ * 7. Sắp xếp mảng theo thứ tự tăng dần
+ */
+
+function bubbleSort(array) {
+    var newArray = array.map(function(n) {
+        return n;
+    });
+    var i = array.length - 1;
+    while (i >= 0) {
+        for (let j = 0; j < i; j++) {
+            if (newArray[j] > newArray[j + 1]) {
+                var temp = newArray[j];
+                newArray[j] = newArray[j + 1];
+                newArray[j + 1] = temp;
+            }
+        }
+        i -= 1;
+    }
+    return newArray;
+}
+
+document.getElementById("btnBai7").onclick = function () {
+    var newArr = bubbleSort(arr);
+    document.querySelector("#kqBai7").innerHTML = '[' + newArr.join(', ') + ']';
+}
