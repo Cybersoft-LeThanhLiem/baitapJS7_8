@@ -120,3 +120,32 @@ document.getElementById("btnBai7").onclick = function () {
     var newArr = bubbleSort(arr);
     document.querySelector("#kqBai7").innerHTML = '[' + newArr.join(', ') + ']';
 }
+
+/**
+ * 8. Tìm số nguyên tố đầu tiên trong mảng
+ */
+
+function prime(num) {
+    if (num < 2) {
+        return false;
+    } else {
+        for (let i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
+document.getElementById("btnBai8").onclick = function () {
+    var firstPrime = -1;
+    for (let i = 0; i < arr.length; i++) {
+        if (prime(arr[i])) {
+            firstPrime = arr[i];
+            break;
+        }
+    }
+
+    document.getElementById("kqBai8").innerHTML = firstPrime;
+}
