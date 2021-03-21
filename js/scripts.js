@@ -40,10 +40,10 @@ document.querySelector("#btnBai2").onclick = function () {
  */
 
 document.querySelector("#btnBai3").onclick = function () {
-    var arrCP = arr.map(function(n) {
+    var arrCP = arr.map(function (n) {
         return n;
     });
-    arrCP.sort(function(a, b) {
+    arrCP.sort(function (a, b) {
         return a - b;
     });
     document.getElementById("kqBai3").innerHTML = arrCP[0];
@@ -54,10 +54,10 @@ document.querySelector("#btnBai3").onclick = function () {
  */
 
 document.getElementById("btnBai4").onclick = function () {
-    var arrP = arr.filter(function(n) {
+    var arrP = arr.filter(function (n) {
         return n > 0;
     });
-    arrP.sort(function(a, b) {
+    arrP.sort(function (a, b) {
         return a - b;
     });
     document.querySelector("#kqBai4").innerHTML = arrP[0];
@@ -85,7 +85,7 @@ document.getElementById("btnBai6").onclick = function () {
         alert("Chỉ số vị trí sai!");
         return;
     }
-    var newArr = arr.map(function(n) {
+    var newArr = arr.map(function (n) {
         return n;
     });
     var temp = newArr[a];
@@ -99,7 +99,7 @@ document.getElementById("btnBai6").onclick = function () {
  */
 
 function bubbleSort(array) {
-    var newArray = array.map(function(n) {
+    var newArray = array.map(function (n) {
         return n;
     });
     var i = array.length - 1;
@@ -148,4 +148,53 @@ document.getElementById("btnBai8").onclick = function () {
     }
 
     document.getElementById("kqBai8").innerHTML = firstPrime;
+}
+
+/**
+ * 9. Nhập thêm 1 mảng số thực. Tìm trong mảng có bao nhiêu số nguyên ?
+ */
+
+var arr2 = [];
+
+document.querySelector("#btnAddFloat").onclick = function () {
+    var f = parseFloat(document.querySelector("#f").value);
+    arr2.push(f);
+    document.querySelector("#txtArr2").innerHTML = '[' + arr2.join(', ') + ']';
+}
+
+document.querySelector("#btnBai9").onclick = function () {
+    var count = 0;
+    arr2.forEach(function (f) {
+        if (f == parseInt(f)) {
+            count++;
+        }
+    });
+    document.querySelector("#kqBai9").innerHTML = count;
+}
+
+/**
+ * 10. So sánh số lượng số dương và số âm.
+ */
+
+document.querySelector("#btnBai10").onclick = function () {
+    var countP = 0;
+    var countN = 0;
+    var kq = "";
+    arr2.forEach(function (f) {
+        if (f > 0) {
+            countP += 1;
+        } else if (f < 0) {
+            countN += 1;
+        }
+    });
+
+    if (countP > countN) {
+        kq = ">";
+    } else if (countP < countN) {
+        kq = "<";
+    } else {
+        kq = "=";
+    }
+
+    document.querySelector("#kqBai10").innerHTML = `Số dương ${kq} Số âm.`
 }
